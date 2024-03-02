@@ -8,9 +8,17 @@ set(TARGET_NAME vl_unit_tests)
 
 set(CMAKE_CXX_STANDARD 17)
 
+add_custom_target(CLONE_PROJECTS)
+include(${CMAKE_SOURCE_DIR}/dependencies.cmake)
+
+
+if(IS_DIRECTORY ${PROJECT_SOURCE_DIR}gtest)
 add_subdirectory(
         ${CMAKE_SOURCE_DIR}/gtest
 )
+endif()
+
+
 
 set(INCLUDE_DIRECTORIES
         ${CMAKE_SOURCE_DIR}/homework_6/list
@@ -19,7 +27,7 @@ set(INCLUDE_DIRECTORIES
         ${CMAKE_SOURCE_DIR}/tests/vector_test.cpp
 )
 
-add_custom_target(CLONE_PROJECTS)
+
 
 
 add_executable(${TARGET_NAME}
@@ -27,7 +35,7 @@ add_executable(${TARGET_NAME}
    ${CMAKE_SOURCE_DIR}/tests/list_test.cpp
 )
 
-include(${CMAKE_SOURCE_DIR}/dependencies.cmake)
+
 
 target_link_libraries(${TARGET_NAME} PRIVATE
         gtest gtest_main
