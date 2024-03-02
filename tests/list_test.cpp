@@ -60,7 +60,7 @@ TEST_F (List_fixture, ins_mid){
     EXPECT_TRUE(cont_comparison(test_list, ref_list));
 }
 
-TEST_F (List_fixture, DISABLED_ins_bot){
+TEST_F (List_fixture, ins_bot){
     //Arrange
     ref_list.push_back((unsigned int)0);
     ref_list.push_back(1);
@@ -95,7 +95,6 @@ TEST_F (List_fixture, er_bot){
     //Arrange
     ref_list.push_back((unsigned int)0);
     //Act
-    std::cout<<test_list.size()<<std::endl;
     test_list.erase(1);
     //Assert
     EXPECT_TRUE(cont_comparison(test_list, ref_list));
