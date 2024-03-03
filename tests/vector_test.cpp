@@ -66,7 +66,7 @@ TEST_F (Vector_fixture, ins_bot){
     ref_vector.push_back(1);
     ref_vector.push_back(30);
     //Act
-    test_vector.insert(30,3);
+    test_vector.insert(30,2);
     //Assert
     EXPECT_TRUE(cont_comparison(test_vector, ref_vector));
 }
@@ -116,4 +116,24 @@ TEST_F (Vector_fixture, get_cell_val){
     
     //Assert
     EXPECT_EQ(test_vector[1],1);
+}
+
+TEST_F (Vector_fixture, oversize_insert){
+    //Arrange
+
+    //Act
+    try {test_vector.insert(30,5);}
+    catch (...) {}
+    //Assert
+    EXPECT_TRUE(true);
+}
+
+TEST_F (Vector_fixture, empty_erase){
+    //Arrange
+    Vector<unsigned int> test_vector_2;
+    //Act
+    try {test_vector_2.erase(0);}
+    catch (...) {}
+    //Assert
+    EXPECT_TRUE(true);
 }

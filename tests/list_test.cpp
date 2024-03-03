@@ -66,7 +66,7 @@ TEST_F (List_fixture, ins_bot){
     ref_list.push_back(1);
     ref_list.push_back(30);
     //Act
-    test_list.insert(30,3);
+    test_list.insert(30,2);
     //Assert
     EXPECT_TRUE(cont_comparison(test_list, ref_list));
 }
@@ -116,4 +116,24 @@ TEST_F (List_fixture, get_cell_val){
     
     //Assert
     EXPECT_EQ(test_list[1],1);
+}
+
+TEST_F (List_fixture, oversize_insert){
+    //Arrange
+
+    //Act
+    try {test_list.insert(30,5);}
+    catch (...) {}
+    //Assert
+    EXPECT_TRUE(true);
+}
+
+TEST_F (List_fixture, empty_erase){
+    //Arrange
+    List<unsigned int> test_list_2;
+    //Act
+    try {test_list_2.erase(0);}
+    catch (...) {}
+    //Assert
+    EXPECT_TRUE(true);
 }

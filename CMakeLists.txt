@@ -12,7 +12,7 @@ add_custom_target(CLONE_PROJECTS)
 include(${CMAKE_SOURCE_DIR}/dependencies.cmake)
 
 
-if(IS_DIRECTORY ${PROJECT_SOURCE_DIR}gtest)
+if(IS_DIRECTORY ${PROJECT_SOURCE_DIR}/gtest)
 add_subdirectory(
         ${CMAKE_SOURCE_DIR}/gtest
 )
